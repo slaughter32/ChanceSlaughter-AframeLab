@@ -9,13 +9,19 @@
 <body>
 <a-scene background="color: #87CEEB">
 
+    <!-- LIGHTING -->
+  <a-light type="ambient" color="#FFFFFF"
+           intensity="1.3"></a-light>
+  <a-light type="directional" position="-3 8 4"
+           intensity="1.5"></a-light>
+           
   <!-- SAND-->
 <a-plane
   position="0 0 2"
   rotation="-90 0 0"
   width="320"
   height="20"
-  material="src: url(/assets/sandtexture.jpg);
+  material="src: /assets/sandtexture.jpg;
             color: #ffffff;
             roughness: 1;
             repeat: 8 8;
