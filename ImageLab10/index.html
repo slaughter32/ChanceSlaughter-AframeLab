@@ -1,15 +1,219 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"> </script>
-  </head>
-  <body>
-    <a-scene>
-      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-      <a-sky color="#ECECEC"></a-sky>
-    </a-scene>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Unreal Summer World</title>
+  <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+</head>
+
+<body>
+<a-scene background="color: #87CEEB">
+
+  <!-- SAND-->
+  <a-plane position="0 0 2"
+           rotation="-90 0 0"
+           width="40" height="20"
+           material="color: #d6a54f;
+           roughness: 1;
+           src:;
+           repeat: 8 8">
+  </a-plane>
+
+  <!-- OCEAN -->
+  <a-entity position="0 0 0">
+  <a-plane position="0 0.03 -21"
+           rotation="-90 0 0"
+           width="80" height="30"
+           material="color: #24B9DB;
+           opacity: 0.5">
+  </a-plane>
+  <a-plane position="0 0.1 -28"
+           rotation="-90 0 0"
+           width="160" height="30"
+           material="color: #24B9DB; 
+           opacity: 0.85">
+  </a-plane>
+  <a-plane position="0 0.3 -50"
+           rotation="-90 0 0"
+           width="240" height="30"
+           material="color: #24B9DB;
+           opacity: 0.99">
+  </a-plane>
+</a-entity>
+
+  <!-- OBJECT 1: SANDCASTLE -->
+  <a-entity position="3 0 1.5">
+
+    <!-- Main castle -->
+    <a-box position="0 0.55 0"
+           width="1.5" height="1.1" depth="1"
+           color="#D8B875"
+           material="roughness: 1"></a-box>
+
+    <!-- Left tower -->
+    <a-cylinder position="-0.8 0.7 0"
+                radius="0.35" height="1.4"
+                color="#E8C98C"></a-cylinder>
+
+    <!-- Right tower -->
+    <a-cylinder position="0.8 0.7 0"
+                radius="0.35" height="1.4"
+                color="#E8C98C"></a-cylinder>
+
+    <!-- Tower roofs -->
+    <a-cone position="-0.8 1.6 0"
+            radius-bottom="0.43" height="0.5"
+            color="#F3D99D"></a-cone>
+
+    <a-cone position="0.8 1.6 0"
+            radius-bottom="0.43" height="0.5"
+            color="#F3D99D"></a-cone>
+
+    <!-- Door -->
+    <a-box position="0 0.3 0.51"
+           width="0.4" height="0.6" depth="0.06"
+           color="#88643D"></a-box>
+
+    <!-- Castle flag -->
+    <a-cylinder position="0 1.45 0"
+                radius="0.025" height="0.8"
+                color="#FFFFFF"></a-cylinder>
+    <a-triangle position="0.2 1.65 0.1"
+                vertex-a="0 0.2 0"
+                vertex-b="0 -0.2 0"
+                vertex-c="0.4 0 0"
+                color="#FF6464"
+                side="double"></a-triangle>
+  </a-entity>
+    <!-- OBJECT 1: SANDCASTLE -->
+    <a-entity position="-1 0 1.5">
+
+      <!-- Main castle -->
+      <a-box position="0 0.55 0"
+             width="1.5" height="1.1" depth="1"
+             color="#D8B875"
+             material="roughness: 1"></a-box>
+  
+      <!-- Left tower -->
+      <a-cylinder position="-0.8 0.7 0"
+                  radius="0.35" height="1.4"
+                  color="#E8C98C"></a-cylinder>
+  
+      <!-- Right tower -->
+      <a-cylinder position="0.8 0.7 0"
+                  radius="0.35" height="1.4"
+                  color="#E8C98C"></a-cylinder>
+  
+      <!-- Tower roofs -->
+      <a-cone position="-0.8 1.6 0"
+              radius-bottom="0.43" height="0.5"
+              color="#F3D99D"></a-cone>
+  
+      <a-cone position="0.8 1.6 0"
+              radius-bottom="0.43" height="0.5"
+              color="#F3D99D"></a-cone>
+  
+      <!-- Door -->
+      <a-box position="0 0.3 0.51"
+             width="0.4" height="0.6" depth="0.06"
+             color="#88643D"></a-box>
+  
+      <!-- Castle flag -->
+      <a-cylinder position="0 1.45 0"
+                  radius="0.025" height="0.8"
+                  color="#FFFFFF"></a-cylinder>
+      <a-triangle position="0.2 1.65 0.1"
+                  vertex-a="0 0.2 0"
+                  vertex-b="0 -0.2 0"
+                  vertex-c="0.4 0 0"
+                  color="#FF6464"
+                  side="double"></a-triangle>
+    </a-entity>
+
+  <!-- OBJECT 2: BEACH UMBRELLA -->
+  <a-entity position="1.8 0 -4">
+
+    <!-- Umbrella pole -->
+    <a-cylinder position="-1 1 2"
+                radius="0.055" height="2"
+                color="#EEEEEE"></a-cylinder>
+
+    <!-- Umbrella canopy -->
+    <a-cone position="-1 2.15 2"
+            radius-bottom="1.6"
+            radius-top="0"
+            height="0.65"
+            segments-radial="8"
+            material="color: #FF6464;
+            side: double"></a-cone>
+
+    <!-- Decorative top -->
+    <a-sphere position="-1 2.45 2"
+              radius="0.1"
+              color="#FFDD55"></a-sphere>
+
+    <!-- Beach towel with stripe texture -->
+    <a-plane position="0.1 00.025 1.4"
+             rotation="-90 0 0"
+             width=".5" height="1.8"
+             material="color: #FF64FF;">
+    </a-plane>
+    <a-plane position="0.6 0.025 1.4"
+             rotation="-90 0 0"
+             width=".5" height="1.8"
+             material="color: #FF8EFF;">
+    </a-plane>
+
+  </a-entity>
+
+  <!-- OBJECT 3: ICE CREAM CONE -->
+  <a-entity position="4 0 -2">
+
+    <!-- Waffle cone -->
+    <a-cone position="0 0.6 0"
+            radius-bottom="0"
+            radius-top="0.42"
+            height="1.2"
+            material="color: #6e5429;
+            roughness: 1;">
+    </a-cone>
+
+    <!-- Strawberry scoop -->
+    <a-sphere position="0 1.35 0"
+              radius="0.48"
+              color="#FF83B5"></a-sphere>
+
+    <!-- Vanilla scoop -->
+    <a-sphere position="0 1.9 0"
+              radius="0.38"
+              color="#FFF0C7"></a-sphere>
+
+    <!-- Cherry -->
+    <a-sphere position="0 2.28 0"
+              radius="0.13"
+              color="#E82945"></a-sphere>
+
+  </a-entity>
+
+  <!-- SUN -->
+  <a-sphere position="-5 10 -12"
+            radius="1.5"
+            material="color: #FFE55B;
+            emissive: #FFE55B;
+            emissiveIntensity: 0.4">
+  </a-sphere>
+
+  <!-- CAMERA: ANGLED VIEW -->
+  <a-entity position="5 5 7"
+            rotation="-25 25 0">
+    <a-camera look-controls="enabled: false"
+              wasd-controls="enabled: false">
+    </a-camera>
+  </a-entity>
+
+  <!-- SKY -->
+  <a-sky color="#87CEEB"></a-sky>
+
+</a-scene>
+</body>
 </html>
