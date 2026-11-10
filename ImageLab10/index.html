@@ -10,14 +10,17 @@
 <a-scene background="color: #87CEEB">
 
   <!-- SAND-->
-  <a-plane position="0 0 2"
-           rotation="-90 0 0"
-           width="320" height="20"
-           material="src: /assets/sandtexture.jpg;
-           color: #d6a54f;
-           roughness: 1;
-           repeat: 8 8">
-  </a-plane>
+<a-plane
+  position="0 0 2"
+  rotation="-90 0 0"
+  width="320"
+  height="20"
+  material="src: url(/assets/sandtexture.jpg);
+            color: #ffffff;
+            roughness: 1;
+            repeat: 8 8;
+            side: double">
+</a-plane>
 
   <!-- OCEAN -->
   <a-entity position="0 0 0">
