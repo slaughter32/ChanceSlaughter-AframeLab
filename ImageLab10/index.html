@@ -10,7 +10,8 @@
 <a-scene background="color: #87CEEB">
   <a-assets>
     <img id="sand" src="./assets/sandtexture-converted.jpg" alt="">
-    <img id="polka" src="./assets/polka.jpg" alt="">
+    <img id="polka" src="./assets/polka-dot-fabric-4t36jj.jpg" alt="">
+    <a-mixin id="castle-sand" material="src: #sand; color: #FFFFFF; roughness: 1; repeat: .25 .25"></a-mixin>
   </a-assets>
 
     <!-- LIGHTING -->
@@ -28,7 +29,7 @@
   material="src: #sand;
             color: #ffffff;
             roughness: 1;
-            repeat: 14 6;
+            repeat: 14 3;
             side: double">
 </a-plane>
 
@@ -60,27 +61,26 @@
     <!-- Main castle -->
     <a-box position="0 0.55 0"
            width="1.5" height="1.1" depth="1"
-           color="#D8B875"
-           material="roughness: 1"></a-box>
+           mixin="castle-sand"></a-box>
 
     <!-- Left tower -->
     <a-cylinder position="-0.8 0.7 0"
                 radius="0.35" height="1.4"
-                color="#E8C98C"></a-cylinder>
+                mixin="castle-sand"></a-cylinder>
 
     <!-- Right tower -->
     <a-cylinder position="0.8 0.7 0"
                 radius="0.35" height="1.4"
-                color="#E8C98C"></a-cylinder>
+                mixin="castle-sand"></a-cylinder>
 
     <!-- Tower roofs -->
     <a-cone position="-0.8 1.6 0"
             radius-bottom="0.43" height="0.5"
-            color="#F3D99D"></a-cone>
+            mixin="castle-sand"></a-cone>
 
     <a-cone position="0.8 1.6 0"
             radius-bottom="0.43" height="0.5"
-            color="#F3D99D"></a-cone>
+            mixin="castle-sand"></a-cone>
 
     <!-- Door -->
     <a-box position="0 0.3 0.51"
@@ -104,27 +104,26 @@
       <!-- Main castle -->
       <a-box position="0 0.55 0"
              width="1.5" height="1.1" depth="1"
-             color="#D8B875"
-             material="roughness: 1"></a-box>
+             mixin="castle-sand"></a-box>
   
       <!-- Left tower -->
       <a-cylinder position="-0.8 0.7 0"
                   radius="0.35" height="1.4"
-                  color="#E8C98C"></a-cylinder>
+                  mixin="castle-sand"></a-cylinder>
   
       <!-- Right tower -->
       <a-cylinder position="0.8 0.7 0"
                   radius="0.35" height="1.4"
-                  color="#E8C98C"></a-cylinder>
+                  mixin="castle-sand"></a-cylinder>
   
       <!-- Tower roofs -->
       <a-cone position="-0.8 1.6 0"
               radius-bottom="0.43" height="0.5"
-              color="#F3D99D"></a-cone>
+              mixin="castle-sand"></a-cone>
   
       <a-cone position="0.8 1.6 0"
               radius-bottom="0.43" height="0.5"
-              color="#F3D99D"></a-cone>
+              mixin="castle-sand"></a-cone>
   
       <!-- Door -->
       <a-box position="0 0.3 0.51"
@@ -158,8 +157,8 @@
             height="0.65"
             segments-radial="8"
             material="src: #polka;
-            color: #FF6464;
-            repeat: 2 2;
+            color: #FFFFFF;
+            repeat: 1 1;
             side: double"></a-cone>
 
     <!-- Decorative top -->
