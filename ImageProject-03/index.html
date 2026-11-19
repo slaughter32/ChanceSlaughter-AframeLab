@@ -1,15 +1,50 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"> </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ski Paradise - Project 03</title>
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
   </head>
   <body>
     <a-scene>
-      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-      <a-sky color="#ECECEC"></a-sky>
+      <a-assets timeout="30000"> <!--wait time for assets to load-->
+        <img id="ski-sky" src="./Assets/ski%20sky%20altered.jpg" alt="">
+        <a-asset-item id="mountain-skier-model" src="./Assets/mountain-skier.glb"></a-asset-item>
+        <a-asset-item id="skier-model" src="./Assets/skier.glb"></a-asset-item>
+        <a-asset-item id="ski-lift-model" src="./Assets/ski_gongola_and_lift_station_detailed_drafts.glb"></a-asset-item>
+        <a-asset-item id="snowy-mountain-model" src="./Assets/snowy_mountain.glb"></a-asset-item>
+      </a-assets>
+
+      <!--Equirectangular Sky-->
+      <a-sky src="#ski-sky" rotation="0 -90 0"></a-sky>
+
+      <a-light type="ambient" color="#E8F1FF" intensity="1"></a-light>
+      <a-light type="directional" color="#FFFFFF" intensity="1.8" position="-10 20 10"></a-light>
+
+      <!-- Snowy Mountain-->
+      <a-entity id="snowy-mountain" gltf-model="#snowy-mountain-model"
+                position="0 -100 0" rotation="0 0 0"
+                scale="0.5 0.5 0.5"></a-entity>
+
+      <!--Gondola-->
+      <a-entity id="ski-lift" gltf-model="#ski-lift-model"
+                position="-6.4 0.008 -18" rotation="0 0 0"
+                scale="0.22 0.22 0.22"></a-entity>
+
+      <!--Skier Model 1-->
+      <a-entity id="mountain-skier" gltf-model="#mountain-skier-model"
+                position="-3.5 0.882 -5" rotation="0 20 0"
+                scale="0.022 0.022 0.022"></a-entity>
+
+      <!--Skier model 2-->
+      <a-entity id="skier" gltf-model="#skier-model"
+                position="3 0.012 -5" rotation="0 -25 0"
+                scale="0.28 0.28 0.28"></a-entity>
+
+      <!--Movement Controls-->
+      <a-camera position="0 2.2 8" rotation="-5 0 0"
+                wasd-controls="acceleration: 100"></a-camera>
     </a-scene>
   </body>
 </html>
