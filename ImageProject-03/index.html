@@ -8,8 +8,8 @@
   </head>
   <body>
     <a-scene>
-      <a-assets timeout="30000"> <!--wait time for assets to load-->
-        <img id="ski-sky" src="./Assets/ski%20sky%20altered.jpg" alt="">
+      <a-assets>
+        <img id="sky" src="./Assets/ski%20sky%20altered.jpg" alt="">
         <a-asset-item id="mountain-skier-model" src="./Assets/mountain-skier.glb"></a-asset-item>
         <a-asset-item id="skier-model" src="./Assets/skier.glb"></a-asset-item>
         <a-asset-item id="ski-lift-model" src="./Assets/ski_gongola_and_lift_station_detailed_drafts.glb"></a-asset-item>
@@ -17,34 +17,71 @@
       </a-assets>
 
       <!--Equirectangular Sky-->
-      <a-sky src="#ski-sky" rotation="0 -90 0"></a-sky>
+      <a-sky src="#sky" rotation="0 -90 0" radius="8000"></a-sky>
 
-      <a-light type="ambient" color="#E8F1FF" intensity="1"></a-light>
-      <a-light type="directional" color="#FFFFFF" intensity="1.8" position="-10 20 10"></a-light>
+      <!--Scene Rotation-->
+      <a-entity id="scene-rotation" rotation="0 90 0">
+        <a-light type="ambient" color="#E8F1FF" intensity="1"></a-light>
+        <a-light type="directional" color="#FFFFFF" intensity="1.8" position="-10 20 10"></a-light>
 
-      <!-- Snowy Mountain-->
-      <a-entity id="snowy-mountain" gltf-model="#snowy-mountain-model"
-                position="0 -100 0" rotation="0 0 0"
-                scale="0.5 0.5 0.5"></a-entity>
+        <!--Scale Whole Model-->
+        <a-entity id="ski-resort" position="0 1000 0" scale="1.5 1.5 1.5">
+          <!-- Snowy Mountain-->
+          <a-entity id="snowy-mountain" gltf-model="#snowy-mountain-model"
+                    position="0 -35 -50" rotation="0 0 0"
+                    scale="1 1 1"></a-entity>
 
-      <!--Gondola-->
-      <a-entity id="ski-lift" gltf-model="#ski-lift-model"
-                position="-6.4 0.008 -18" rotation="0 0 0"
-                scale="0.22 0.22 0.22"></a-entity>
+          <!--Lift Side Mountain-->
+          <a-entity id="snowy-mountain-extension" gltf-model="#snowy-mountain-model"
+                    position="0 -35 150" rotation="0 180 0"
+                    scale="-1 1 1"></a-entity>
 
-      <!--Skier Model 1-->
-      <a-entity id="mountain-skier" gltf-model="#mountain-skier-model"
-                position="-3.5 0.882 -5" rotation="0 20 0"
-                scale="0.022 0.022 0.022"></a-entity>
+          <!--Gondola Top-->
+          <a-entity id="ski-lift" gltf-model="#ski-lift-model"
+                    position="15.5 5 -26" rotation="0 -55 0"
+                    scale="0.2 0.2 0.2"></a-entity>
 
-      <!--Skier model 2-->
-      <a-entity id="skier" gltf-model="#skier-model"
-                position="3 0.012 -5" rotation="0 -25 0"
-                scale="0.28 0.28 0.28"></a-entity>
+          <!--Gondola Bottom-->
+          <a-entity id="ski-lift-bottom" gltf-model="#ski-lift-model"
+                    position="60.5 -26.5 40.5" rotation="0 125 0"
+                    scale="0.2 0.2 0.2"></a-entity>
 
-      <!--Movement Controls-->
-      <a-camera position="0 2.2 8" rotation="-5 0 0"
-                wasd-controls="acceleration: 100"></a-camera>
+          <!--Lift Cables-->
+          <a-cylinder position="38.5 -6.5 6.75" rotation="-48.25 -23 48.75"
+                      radius="0.025" height="71.5" color="#34383D"
+                      segments-radial="6"></a-cylinder>
+          <a-cylinder position="37.5 -6.5 7.75" rotation="-48.25 -23 48.75"
+                      radius="0.025" height="71.5" color="#34383D"
+                      segments-radial="6"></a-cylinder>
+
+          <!--Skier Uncolored-->
+          <a-entity id="mountain-skier" gltf-model="#mountain-skier-model"
+                    position="50 -28.25 31.5" rotation="-35 105 -20"
+                    scale="0.03 0.03 0.03" skier-color="#3E6B97"></a-entity>
+          <a-entity id="mountain-skier-2" gltf-model="#mountain-skier-model"
+                    position="47 -28.25 33" rotation="-40 105 -20"
+                    scale="0.03 0.03 0.03" skier-color="#3E6B97"></a-entity>
+          <a-entity id="mountain-skier-3" gltf-model="#mountain-skier-model"
+                    position="44.5 -29 34.5" rotation="-45 105 -25"
+                    scale="0.03 0.03 0.03" skier-color="#3E6B97"></a-entity>
+
+          <!--Skier active-->
+          <a-entity id="skier" gltf-model="#skier-model"
+                    position="23 -1.5 -15" rotation="30 -10 0"
+                    scale="0.4 0.4 0.4"></a-entity>
+          <a-entity id="skier-2" gltf-model="#skier-model"
+                    position="34 -13.5 0" rotation="40 115 0"
+                    scale="0.4 0.4 0.4"></a-entity>
+          <a-entity id="skier-3" gltf-model="#skier-model"
+                    position="43 -26.5 13.5" rotation="20 20 0"
+                    scale="0.4 0.4 0.4"></a-entity>
+        </a-entity>
+
+        <!--Movement Controls-->
+        <a-entity id="camera-rig" position="60 965 60" rotation="0 0 0">
+          <a-camera position="0 0 0" far="20000" wasd-controls="acceleration: 50"></a-camera>
+        </a-entity>
+      </a-entity>
     </a-scene>
   </body>
 </html>
